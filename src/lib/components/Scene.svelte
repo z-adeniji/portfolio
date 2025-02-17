@@ -7,7 +7,6 @@
     import CameraControls from './CameraControls.svelte';
 	import { Spring } from 'svelte/motion';
     import { longText } from '$lib';
-    import { fade } from './transitions';
 
     const { dom } = useThrelte();
 
@@ -179,16 +178,16 @@
 
 <!-- About Page -->
 {#if currentIsland === 'about'}
-    <T.Mesh position = {[0,10,450]} rotation.y={Math.PI} transition={fade()}>
+    <T.Mesh position = {[0,10,450]} rotation.y={Math.PI}>
         <HTML
             transform
             pointerEvents="none"
         >
-            <h1 class="text text-lg w-[500px] text-center whitespace-pre-line font-bold" style="text-shadow: 1px 1px 2px black;">{longText.bio}</h1>
+            <p class="text text-lg w-[500px] text-center whitespace-pre-line font-bold" style="text-shadow: 1px 1px 2px black;">{longText.bio}</p>
         </HTML>
     </T.Mesh>
 {/if}
-<T.Mesh position = {[0,2,450]} onpointerenter={onPointerEnter} onpointerleave={onPointerLeave} onclick={() => {moveTo(0,8,420,   "about")}}>
+<T.Mesh position = {[0,2,450]} onpointerenter={onPointerEnter} onpointerleave={onPointerLeave} onclick={() => {moveTo(0,12,420,   "about")}}>
     <T.BoxGeometry args={[10, 1, 10]} />
     <T.MeshStandardMaterial color={colour} />
 </T.Mesh>
@@ -197,14 +196,14 @@
 
 <!-- Projects Page -->
 {#if currentIsland === 'projects'}
-<T.Mesh position = {[20,15,440]} rotation.y={(9* Math.PI)/8}>
-    <HTML
-        transform
-        pointerEvents="none"
-    >
-        <h1 class="text text-6xl w-[500px] text-center whitespace-pre-line font-bold" style="text-shadow: 1px 1px 2px black;">projects</h1>
-    </HTML>
-</T.Mesh>
+    <T.Mesh position = {[20,15,440]} rotation.y={(9.5* Math.PI)/8}>
+        <HTML
+            transform
+            pointerEvents="none"
+        >
+            <h1 class="text text-6xl w-[500px] text-center whitespace-pre-line font-bold" style="text-shadow: 1px 1px 2px black;">Here Are Some Projects I'm Proud Of</h1>
+        </HTML>
+    </T.Mesh>
 {/if}
 <T.Mesh position = {[20,5,440]} onpointerenter={onPointerEnter} onpointerleave={onPointerLeave} onclick={() => {moveTo(5,10,410,   "projects")}}>
     <T.BoxGeometry args={[10, 1, 10]} />
@@ -215,14 +214,14 @@
 
 <!-- Contact Page -->
 {#if currentIsland === 'contact'}
-<T.Mesh position = {[-25,15,435]} rotation.y={(7* Math.PI)/8}>
-    <HTML
-        transform
-        pointerEvents="none"
-    >
-        <h1 class="text text-6xl w-[500px] text-center whitespace-pre-line font-bold" style="text-shadow: 1px 1px 2px black;">lets connect! 🚀</h1>
-    </HTML>
-</T.Mesh>
+    <T.Mesh position = {[-25,15,435]} rotation.y={(6* Math.PI)/8}>
+        <HTML
+            transform
+            pointerEvents="none"
+        >
+            <h1 class="text text-6xl w-[500px] text-center whitespace-pre-line font-bold" style="text-shadow: 1px 1px 2px black;">lets connect! 🌸</h1>
+        </HTML>
+    </T.Mesh>
 {/if}
 <T.Mesh position = {[-25,8,435]} onpointerenter={onPointerEnter} onpointerleave={onPointerLeave} onclick={() => {moveTo(-3,15,410,   "contact")}}>
     <T.BoxGeometry args={[10, 1, 10]} />

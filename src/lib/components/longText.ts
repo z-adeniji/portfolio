@@ -1,6 +1,6 @@
 export const bio: string = `👋 Hi there, I'm Zainab,
-a freelance Full Stack Developer & First Year Computer Science student based in Nottingham, UK.
-I'm well versed in frameworks like Sveltekit & Sveltekit + I can 3d model whatever my macbook can handle.
+a freelance Full Stack Developer & First Year Computer Science Student.
+I'm well versed in frameworks like Sveltekit, Nextjs + I can 3d model whatever my macbook can handle.
 
 Outside of coding, I'm deeply into design, illustration, and animation—anything that lets me flex my creative muscles.
 I believe the intersection of technology and creativity is where the most exciting innovations happen, and I'm always eager to explore that space.`;
