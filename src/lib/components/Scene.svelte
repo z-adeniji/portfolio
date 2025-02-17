@@ -1,7 +1,7 @@
 <script lang="ts">
     import { injectLookAtPlugin } from './lookAtPlugin.svelte';
     import { T, useTask, useThrelte} from '@threlte/core'
-	import { Grid, interactivity, useCursor, Float, Text, useInteractivity, transitions } from '@threlte/extras';
+	import { Grid, interactivity, useCursor, HTML, Text, useInteractivity, transitions } from '@threlte/extras';
     import { CatmullRomCurve3, Vector3, PerspectiveCamera, Object3D } from 'three';
     import CC from 'camera-controls'
     import CameraControls from './CameraControls.svelte';
@@ -60,8 +60,8 @@
 
     const cameraTargetPos = new Spring(
         {
-            x: ($pointer.x * 2) + 0,
-            y: ($pointer.y * 2) + 10,
+            x: ($pointer.x * 3) + 0,
+            y: ($pointer.y * 3) + 10,
             z: 420
         },
         {
@@ -82,8 +82,8 @@
         if (currentIslandPos) {
             cameraTargetPos.set(
                 {
-                    x: -($pointer.x * 2) + currentIslandPos[0],
-                    y: ($pointer.y * 2) + currentIslandPos[1],
+                    x: -($pointer.x * 3) + currentIslandPos[0],
+                    y: ($pointer.y * 3) + currentIslandPos[1],
                     z: currentIslandPos[2]
                 }
             )
@@ -115,7 +115,7 @@
 
     const {task: panToHomeScreen } = useTask(
         () => {
-            const speed = 0.005
+            const speed = 0.003
             progress += speed;
 
             if (progress >= 0.98) {
@@ -178,19 +178,17 @@
 <T.AmbientLight intensity={0.5} color="#ffd9e5"/>
 
 <!-- About Page -->
- {#if currentIsland === 'about'}
-    <T.Mesh position = {[10,15,450]} rotation.y={Math.PI} transition={fade()}>
-        <Text
-            text={longText.bio}
-            fontSize={0.5}
-            color="blue"
-            textAlign="left"
-            maxWidth={20}
-            transition={fade()}
-        />
+{#if currentIsland === 'about'}
+    <T.Mesh position = {[0,10,450]} rotation.y={Math.PI} transition={fade()}>
+        <HTML
+            transform
+            pointerEvents="none"
+        >
+            <h1 class="text text-lg w-[500px] text-center whitespace-pre-line font-bold" style="text-shadow: 1px 1px 2px black;">{longText.bio}</h1>
+        </HTML>
     </T.Mesh>
 {/if}
-<T.Mesh position = {[0,2,450]} onpointerenter={onPointerEnter} onpointerleave={onPointerLeave} onclick={() => {moveTo(0,12,415,   "about")}}>
+<T.Mesh position = {[0,2,450]} onpointerenter={onPointerEnter} onpointerleave={onPointerLeave} onclick={() => {moveTo(0,8,420,   "about")}}>
     <T.BoxGeometry args={[10, 1, 10]} />
     <T.MeshStandardMaterial color={colour} />
 </T.Mesh>
@@ -198,6 +196,16 @@
 
 
 <!-- Projects Page -->
+{#if currentIsland === 'projects'}
+<T.Mesh position = {[20,15,440]} rotation.y={(9* Math.PI)/8}>
+    <HTML
+        transform
+        pointerEvents="none"
+    >
+        <h1 class="text text-6xl w-[500px] text-center whitespace-pre-line font-bold" style="text-shadow: 1px 1px 2px black;">projects</h1>
+    </HTML>
+</T.Mesh>
+{/if}
 <T.Mesh position = {[20,5,440]} onpointerenter={onPointerEnter} onpointerleave={onPointerLeave} onclick={() => {moveTo(5,10,410,   "projects")}}>
     <T.BoxGeometry args={[10, 1, 10]} />
     <T.MeshStandardMaterial color={colour} />
@@ -206,15 +214,16 @@
 
 
 <!-- Contact Page -->
-<T.Mesh position = {[-25,20,435]} rotation.y={(7* Math.PI)/8}>
-<Text
-    text="Let's Connect!"
-    fontSize={0.8}
-    color="blue"
-    textAlign="left"
-    maxWidth={20}
-/>
+{#if currentIsland === 'contact'}
+<T.Mesh position = {[-25,15,435]} rotation.y={(7* Math.PI)/8}>
+    <HTML
+        transform
+        pointerEvents="none"
+    >
+        <h1 class="text text-6xl w-[500px] text-center whitespace-pre-line font-bold" style="text-shadow: 1px 1px 2px black;">lets connect! 🚀</h1>
+    </HTML>
 </T.Mesh>
+{/if}
 <T.Mesh position = {[-25,8,435]} onpointerenter={onPointerEnter} onpointerleave={onPointerLeave} onclick={() => {moveTo(-3,15,410,   "contact")}}>
     <T.BoxGeometry args={[10, 1, 10]} />
     <T.MeshStandardMaterial color={colour} />

@@ -1,9 +1,11 @@
-export const bio = `👋 Hi, I'm Zainab,
-a freelance Full Stack Developer based in Nottingham, UK. I'm well versed in frameworks like Sveltekit, Tauri, React, Next.js.
+export const bio: string = `👋 Hi there, I'm Zainab,
+a freelance Full Stack Developer & First Year Computer Science student based in Nottingham, UK.
+I'm well versed in frameworks like Sveltekit & Sveltekit + I can 3d model whatever my macbook can handle.
 
-Outside of coding, I'm deeply into design, illustration, and animation—anything that lets me flex my creative muscles. I believe the intersection of technology and creativity is where the most exciting innovations happen, and I'm always eager to explore that space.`;
+Outside of coding, I'm deeply into design, illustration, and animation—anything that lets me flex my creative muscles.
+I believe the intersection of technology and creativity is where the most exciting innovations happen, and I'm always eager to explore that space.`;
 
-export const packageManagerDesc = `Zainab's Portfolio Command Line Interface (1.0.0)
+export const packageManagerDesc: string = `Zainab's Portfolio Command Line Interface (1.0.0)
 
 Usage: zainab <command> [...flags] [...args]
 
@@ -20,5 +22,12 @@ Learn more about Zainab:     https://your-portfolio-url.com
   Contact:                   zainabnadeniji@gmail.com
   LinkedIn:                  https://www.linkedin.com/in/z-adeniji/
   GitHub:                    https://github.com/z-adeniji
+`
 
-Join my community:           https://your-community-link`
+interface projects {
+    name: string,
+    desc: string,
+    img: string,
+    url: string
+}
+export const idk: projects[] = []
