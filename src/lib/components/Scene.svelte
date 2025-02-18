@@ -2,11 +2,13 @@
     import { injectLookAtPlugin } from './lookAtPlugin.svelte';
     import { T, useTask, useThrelte} from '@threlte/core'
 	import { Grid, interactivity, useCursor, HTML, Text, useInteractivity, transitions } from '@threlte/extras';
-    import { CatmullRomCurve3, Vector3, PerspectiveCamera, Object3D } from 'three';
+    import { CatmullRomCurve3, Vector3, PerspectiveCamera, Object3D, Mesh } from 'three';
     import CC from 'camera-controls'
     import CameraControls from './CameraControls.svelte';
 	import { Spring } from 'svelte/motion';
     import { longText } from '$lib';
+
+    import LowPolyFloatingIsland from './models/low_poly_floating_island.svelte';
 
     const { dom } = useThrelte();
 
@@ -229,3 +231,5 @@
 </T.Mesh>
 
 <Grid infiniteGrid={true} />
+
+<LowPolyFloatingIsland position={[-25,8,435]} scale={0.01} rotation.y={15*Math.PI/8}/>

@@ -1,8 +1,8 @@
 export const bio: string = `👋 Hi there, I'm Zainab,
 a freelance Full Stack Developer & First Year Computer Science Student.
-I'm well versed in frameworks like Sveltekit, Nextjs + I can 3d model whatever my macbook can handle.
+I have over 2 years experience in frameworks like Sveltekit, Next.Js, Vue.Js + I can 3d model whatever my macbook can handle 👩🏾‍💻.
 
-Outside of coding, I'm deeply into design, illustration, and animation—anything that lets me flex my creative muscles.
+Outside of coding, I'm deeply into design, illustration, and animation — basically anything that lets me flex my creative muscles.
 I believe the intersection of technology and creativity is where the most exciting innovations happen, and I'm always eager to explore that space.`;
 
 export const packageManagerDesc: string = `Zainab's Portfolio Command Line Interface (1.0.0)
@@ -30,4 +30,5 @@ interface projects {
     img: string,
     url: string
 }
-export const idk: projects[] = []
+
+export const idk: projects[] = [{name: "Snow", desc: "Ollama UI", img: "", url: "https://github.com/z-adeniji/snow"}]
