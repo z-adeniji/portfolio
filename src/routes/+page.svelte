@@ -6,6 +6,7 @@
 
     //vercel
     import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+    import { injectAnalytics } from '@vercel/analytics/sveltekit'
     
     let startPage = $state(true);
     let homeScreenPage: boolean = $state(false);
@@ -154,6 +155,7 @@
     }
 
     injectSpeedInsights();
+    injectAnalytics();
 </script>
 
 <style>
