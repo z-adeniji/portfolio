@@ -3,6 +3,9 @@
 	import { onMount, tick } from 'svelte';
     import { fade } from 'svelte/transition';
     import { longText } from '$lib';
+
+    //vercel
+    import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
     
     let startPage = $state(true);
     let homeScreenPage: boolean = $state(false);
@@ -149,6 +152,8 @@
             setEndOfContenteditable(editableP);
         }
     }
+
+    injectSpeedInsights();
 </script>
 
 <style>
