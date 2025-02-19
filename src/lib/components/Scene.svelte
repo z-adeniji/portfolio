@@ -8,7 +8,10 @@
 	import { Spring } from 'svelte/motion';
     import { longText } from '$lib';
 
-    import LowPolyFloatingIsland from './models/low_poly_floating_island.svelte';
+    //models
+    import Github from './models/github.svelte';
+    import Linkedin from './models/linkedin.svelte';
+    import Gmail from './models/gmail.svelte';
 
     const { dom } = useThrelte();
 
@@ -38,7 +41,6 @@
     let pageActive = $derived(startPage || homeScreenPage ? true : false);
     let pan = $derived(!pageActive ? true : false);
 
-    let colour: string = $state('');
     let progress = 0;
 
     //island coordinates
@@ -134,7 +136,6 @@
     )
 
     $effect(() => {
-        colour = $hovering ? '#ff0000' : '#ffffff';
         if (pan) {
             panToHomeScreen.start();
         } else {
@@ -191,7 +192,7 @@
 {/if}
 <T.Mesh position = {[0,2,450]} onpointerenter={onPointerEnter} onpointerleave={onPointerLeave} onclick={() => {moveTo(0,12,420,   "about")}}>
     <T.BoxGeometry args={[10, 1, 10]} />
-    <T.MeshStandardMaterial color={colour} />
+    <T.MeshStandardMaterial/>
 </T.Mesh>
 
 
@@ -203,13 +204,13 @@
             transform
             pointerEvents="none"
         >
-            <h1 class="text text-6xl w-[500px] text-center whitespace-pre-line font-bold" style="text-shadow: 1px 1px 2px black;">Here Are Some Projects I'm Proud Of</h1>
+            <h1 class="text text-5xl w-[500px] text-center whitespace-pre-line font-bold" style="text-shadow: 1px 1px 2px black;">Here Are Some Projects I'm Proud Of</h1>
         </HTML>
     </T.Mesh>
 {/if}
 <T.Mesh position = {[20,5,440]} onpointerenter={onPointerEnter} onpointerleave={onPointerLeave} onclick={() => {moveTo(5,10,410,   "projects")}}>
     <T.BoxGeometry args={[10, 1, 10]} />
-    <T.MeshStandardMaterial color={colour} />
+    <T.MeshStandardMaterial/>
 </T.Mesh>
 
 
@@ -221,15 +222,35 @@
             transform
             pointerEvents="none"
         >
-            <h1 class="text text-6xl w-[500px] text-center whitespace-pre-line font-bold" style="text-shadow: 1px 1px 2px black;">lets connect! 🌸</h1>
+            <h1 class="text text-6xl w-[500px] text-center whitespace-pre-line font-bold" style="text-shadow: 1px 1px 2px black;">lets connect!</h1>
+            <p class="text text-3xl w-[500px] text-center whitespace-pre-line font-bold" style="text-shadow: 1px 1px 2px black;">email me for any enquiries</p>
         </HTML>
     </T.Mesh>
 {/if}
+<Linkedin position={[-25,8,435]} scale={9} rotation={[Math.PI/2,0,4]} onclick={(e: Event) => {
+    e.stopPropagation();
+    if (currentIsland === 'contact') window.open('https://www.linkedin.com/in/z-adeniji', '_blank')
+    }}
+    onpointerenter={() => {if (currentIsland === 'contact') onPointerEnter()}}
+    onpointerleave={() => {if (currentIsland === 'contact') onPointerLeave()}}
+/>
+<Github position={[-20,13,435]} scale={20} rotation={[Math.PI/2,0,4]}  onclick={(e: Event) => {
+    e.stopPropagation();
+    if (currentIsland === 'contact') window.open('https://github.com/z-adeniji', '_blank')
+    }}
+    onpointerenter={() => {if (currentIsland === 'contact') onPointerEnter()}}
+    onpointerleave={() => {if (currentIsland === 'contact') onPointerLeave()}}
+/>
+<Gmail position={[-22,9,427]} scale={0.25} rotation={[Math.PI/2,0,4]}  onclick={(e: Event) => {
+    e.stopPropagation();
+    if (currentIsland === 'contact') window.open('mailto:zainabnadeniji@gmail.com')
+    }}
+    onpointerenter={() => {if (currentIsland === 'contact') onPointerEnter()}}
+    onpointerleave={() => {if (currentIsland === 'contact') onPointerLeave()}}
+/>
 <T.Mesh position = {[-25,8,435]} onpointerenter={onPointerEnter} onpointerleave={onPointerLeave} onclick={() => {moveTo(-3,15,410,   "contact")}}>
     <T.BoxGeometry args={[10, 1, 10]} />
-    <T.MeshStandardMaterial color={colour} />
+    <T.MeshStandardMaterial/>
 </T.Mesh>
 
 <Grid infiniteGrid={true} />
-
-<LowPolyFloatingIsland position={[-25,8,435]} scale={0.01} rotation.y={15*Math.PI/8}/>
